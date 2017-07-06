@@ -1,1 +1,9 @@
 c:\users\hayden\documents\visual studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\TwitterBot.exe.config
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.Form1.resources
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.Properties.Resources.resources
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.csproj.GenerateResource.Cache
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\TwitterBot.exe
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\TwitterBot.pdb
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.exe
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.pdb
