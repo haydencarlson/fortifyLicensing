@@ -29,6 +29,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.accountsList = new System.Windows.Forms.ListBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // startBot
@@ -69,11 +71,31 @@
             this.accountsList.Size = new System.Drawing.Size(182, 225);
             this.accountsList.TabIndex = 3;
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(223, 12);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(625, 184);
+            this.webBrowser1.TabIndex = 4;
+            this.webBrowser1.Url = new System.Uri("https://temp-mail.org/en", System.UriKind.Absolute);
+            // 
+            // webBrowser2
+            // 
+            this.webBrowser2.Location = new System.Drawing.Point(223, 202);
+            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser2.Name = "webBrowser2";
+            this.webBrowser2.Size = new System.Drawing.Size(625, 174);
+            this.webBrowser2.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 387);
+            this.ClientSize = new System.Drawing.Size(860, 387);
+            this.Controls.Add(this.webBrowser2);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.accountsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -92,6 +114,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox accountsList;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser webBrowser2;
     }
 }
 

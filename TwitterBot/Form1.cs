@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace TwitterBot {
     public partial class Form1 : Form {
@@ -15,22 +16,20 @@ namespace TwitterBot {
             InitializeComponent();
         }
 
+        private string getEmail() {
+            if (webBrowser1.ReadyState == WebBrowserReadyState.Complete) {
+                string emailAddress = webBrowser1.Document.GetElementById("mail").GetAttribute("value");
+                return emailAddress;
+            }
+            return "nothing";
+        }
+
         private void startBot_Click(Object sender, EventArgs e) {
-            accountCreatorTimer.Start();
+            string email = getEmail();
+            Debug.WriteLine(email);
         }
 
         private void accountCreatorTimer_Tick(Object sender, EventArgs e) {
-
-        }
-        
-        async static void makeRequest(string url) {
-            using (HttpClient client = new HttpClient()) {
-                HttpResponseMessage response = await client.PostAsync(url);
-                using (HttpContent content = response.Content) {
-
-                }
-            }
-
 
         }
 
