@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Net.Http;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace TwitterBot {
     public partial class Form1 : Form {
@@ -38,17 +39,17 @@ namespace TwitterBot {
             Debug.WriteLine("Loading Page");
             await PageLoad(10);
             string emailAddress = webBrowser1.Document.GetElementById("mail").GetAttribute("value");
+            accountsList.Items.Add(emailAddress);
             makeRequest(passwordText.Text, emailAddress, "Hayden", "Carlson");
             Debug.WriteLine("Page loaded");
-            accountsList.Items.Add(emailAddress);
         }
         
         private void startBot_Click(Object sender, EventArgs e) {
-            newEmail();
+            accountCreatorTimer.Start();
         }
 
         private void accountCreatorTimer_Tick(Object sender, EventArgs e) {
-
+            newEmail();
         }
         
         public void makeRequest(string password, string email, string firstName, string lastName) {
@@ -77,5 +78,17 @@ namespace TwitterBot {
             return builder.ToString();
         }
 
+  
+        private void saveAccounts_Click(Object sender, EventArgs e) {
+            string path = @"C:\twitterbot\accounts.txt";
+            using (StreamWriter sw = File.AppendText(path)) {
+                foreach (var item in accountsList.Items) {
+                    sw.WriteLine(item);
+                    }
+
+                // sw.WriteLine("Add ");
+                // sw.WriteLine("Done! ");
+            }
+        }
     }
 }
