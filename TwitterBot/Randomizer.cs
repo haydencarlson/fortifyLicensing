@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TwitterBot {
     class Randomizer {
         private static Random random = new Random();
-        private string RandomString(int Size) {
+        public string RandomString(int Size) {
             string input = "abcdefghijklmnopqrstuvwxyz";
             StringBuilder builder = new StringBuilder();
             char ch;
@@ -18,10 +18,10 @@ namespace TwitterBot {
             return builder.ToString();
         }
 
-        private string RandomEmail(int Size) {
+        public static string RandomEmail(int Size) {
             string[] emailDomains = { "@bestvpn.top", "@10vpn.info", "@mailgov.info", "@pcmylife.com", "@garage46.com", "@uscaves.com" };
             string randomDomain = emailDomains[random.Next(emailDomains.Length)];
-            return RandomString(8) + randomDomain;
+            return RandomString(Size) + randomDomain;
         }
     }
 }
