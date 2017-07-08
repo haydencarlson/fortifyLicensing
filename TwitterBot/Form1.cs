@@ -53,10 +53,8 @@ namespace TwitterBot {
         }
         
         public void makeRequest(string password, string email, string firstName, string lastName) {
-            Debug.WriteLine("here");
             var cookieJar = new CookieContainer();
             CookieAwareWebClient client = new CookieAwareWebClient(cookieJar);
-            Debug.WriteLine(client);
             string response = client.DownloadString("https://twitter.com/signup");
 
             string token = Regex.Match(response, "authenticity_token.+?value=\"(.+?)\"").Groups[1].Value;
