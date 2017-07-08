@@ -63,19 +63,6 @@ namespace TwitterBot {
             client.Method = "POST";
             response = client.UploadString("https://twitter.com/account/create", postData);
         }
-
-        private static Random random = new Random();
-        private string RandomString(int Size) {
-            string input = "abcdefghijklmnopqrstuvwxyz";
-            StringBuilder builder = new StringBuilder();
-            char ch;
-            for (int i = 0; i < Size; i++) {
-                ch = input[random.Next(0, input.Length)];
-                builder.Append(ch);
-            }
-            return builder.ToString();
-        }
-
   
         private void saveAccounts_Click(Object sender, EventArgs e) {
             string path = @"C:\twitterbot\accounts.txt";
