@@ -19,37 +19,13 @@ namespace TwitterBot {
             InitializeComponent();
         }
 
-        private async Task PageLoad(int TimeOut) {
-            TaskCompletionSource<bool> PageLoaded = null;
-            PageLoaded = new TaskCompletionSource<bool>();
-            int TimeElapsed = 0;
-            webBrowser1.DocumentCompleted += (s, e) => {
-                if (webBrowser1.ReadyState != WebBrowserReadyState.Complete) return;
-                if (PageLoaded.Task.IsCompleted) return; PageLoaded.SetResult(true);
-            };
-            while (PageLoaded.Task.Status != TaskStatus.RanToCompletion) {
-                await Task.Delay(10);//interval of 10 ms worked good for me
-                TimeElapsed++;
-                if (TimeElapsed >= TimeOut * 100) PageLoaded.TrySetResult(true);
-            }
-        }
-
-        async private void newEmail() {
-            webBrowser1.Navigate("https://temp-mail.org/en/option/delete/");
-            Debug.WriteLine("Loading Page");
-            await PageLoad(10);
-            string emailAddress = webBrowser1.Document.GetElementById("mail").GetAttribute("value");
-            accountsList.Items.Add(emailAddress);
-            makeRequest(passwordText.Text, emailAddress, "Hayden", "Carlson");
-            Debug.WriteLine("Page loaded");
-        }
-        
         private void startBot_Click(Object sender, EventArgs e) {
             accountCreatorTimer.Start();
         }
 
         private void accountCreatorTimer_Tick(Object sender, EventArgs e) {
-            newEmail();
+            string randomEmail = Randomizer.RandomEmail(8);
+
         }
         
         public void makeRequest(string password, string email, string firstName, string lastName) {
@@ -63,19 +39,6 @@ namespace TwitterBot {
             client.Method = "POST";
             response = client.UploadString("https://twitter.com/account/create", postData);
         }
-
-        private static Random random = new Random();
-        private string RandomString(int Size) {
-            string input = "abcdefghijklmnopqrstuvwxyz";
-            StringBuilder builder = new StringBuilder();
-            char ch;
-            for (int i = 0; i < Size; i++) {
-                ch = input[random.Next(0, input.Length)];
-                builder.Append(ch);
-            }
-            return builder.ToString();
-        }
-
   
         private void saveAccounts_Click(Object sender, EventArgs e) {
             string path = @"C:\twitterbot\accounts.txt";
