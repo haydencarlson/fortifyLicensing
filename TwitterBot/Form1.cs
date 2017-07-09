@@ -16,7 +16,7 @@ using MaterialSkin.Controls;
 using MaterialSkin;
 
 namespace TwitterBot {
-    public partial class Form1 : MaterialForm {
+    public partial class Form1 : Form {
         static int accountsCount = 0;
         static int totalAccountsCount = 0;
         public Form1() {
@@ -25,7 +25,7 @@ namespace TwitterBot {
 
         private void accountCreatorTimer_Tick(Object sender, EventArgs e) {
             string randomEmail = Randomizer.RandomEmail(8);
-
+            accountsList.Items.Add(randomEmail);
             // Create a background worker
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler((send, args) => makeRequest("a", randomEmail, "Joseph", "Bruno"));
@@ -65,7 +65,10 @@ namespace TwitterBot {
             this.Invoke(new MethodInvoker(delegate {
                 accountsCreated.Text = accountsCount.ToString();
                 totalAccounts.Text = totalAccountsCount.ToString();
+                accountsList.Items.Add(account);
             }));
+            
+
         }
   
         private void saveAccountToFile(string account) {
@@ -75,29 +78,17 @@ namespace TwitterBot {
             }
         }
         private void Form1_Load(Object sender, EventArgs e) {
-            InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             var lineCount = File.ReadLines(@"C:\twitterbot\accounts.txt").Count();
             totalAccounts.Text = lineCount.ToString();
             totalAccountsCount = lineCount;
+            InitializeComponent();
         }
 
-        private void button1_Click_1(Object sender, EventArgs e) {
-            accountCreatorTimer.Stop();
-        }
-
-        private void label3_Click(Object sender, EventArgs e) {
-
-        }
-
-        private void startCreator_Click(Object sender, EventArgs e) {
+        private void button1_Click(Object sender, EventArgs e) {
             accountCreatorTimer.Start();
         }
 
-        private void stopCreator_Click(Object sender, EventArgs e) {
+        private void button2_Click(Object sender, EventArgs e) {
             accountCreatorTimer.Stop();
         }
     }
