@@ -30,8 +30,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.accountsList = new System.Windows.Forms.ListBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.saveAccounts = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startBot
@@ -46,8 +44,7 @@
             // 
             // accountCreatorTimer
             // 
-            this.accountCreatorTimer.Enabled = true;
-            this.accountCreatorTimer.Interval = 15000;
+            this.accountCreatorTimer.Interval = 5000;
             this.accountCreatorTimer.Tick += new System.EventHandler(this.accountCreatorTimer_Tick);
             // 
             // passwordText
@@ -84,33 +81,11 @@
             this.webBrowser1.TabIndex = 4;
             this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
-            // saveAccounts
-            // 
-            this.saveAccounts.Location = new System.Drawing.Point(23, 217);
-            this.saveAccounts.Name = "saveAccounts";
-            this.saveAccounts.Size = new System.Drawing.Size(182, 31);
-            this.saveAccounts.TabIndex = 5;
-            this.saveAccounts.Text = "Save";
-            this.saveAccounts.UseVisualStyleBackColor = true;
-            this.saveAccounts.Click += new System.EventHandler(this.saveAccounts_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(504, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 394);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.saveAccounts);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.accountsList);
             this.Controls.Add(this.label1);
@@ -131,8 +106,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox accountsList;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Button saveAccounts;
-        private System.Windows.Forms.Button button1;
     }
 }
 
