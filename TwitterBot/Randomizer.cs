@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TwitterBot {
     class Randomizer {
         private static Random random = new Random();
-        public string RandomString(int Size) {
+        public static string RandomString(int Size) {
             string input = "abcdefghijklmnopqrstuvwxyz";
             StringBuilder builder = new StringBuilder();
             char ch;
