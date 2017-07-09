@@ -7,3 +7,4 @@ C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\TwitterBot.pdb
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.exe
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.pdb
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\MaterialSkin.dll
