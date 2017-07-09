@@ -39,7 +39,7 @@
             // 
             // accountCreatorTimer
             // 
-            this.accountCreatorTimer.Interval = 1500;
+            this.accountCreatorTimer.Interval = 500;
             this.accountCreatorTimer.Tick += new System.EventHandler(this.accountCreatorTimer_Tick);
             // 
             // passwordText
@@ -49,6 +49,7 @@
             this.passwordText.Size = new System.Drawing.Size(182, 20);
             this.passwordText.TabIndex = 1;
             this.passwordText.UseSystemPasswordChar = true;
+            this.passwordText.TextChanged += new System.EventHandler(this.passwordText_TextChanged);
             // 
             // label1
             // 
@@ -70,6 +71,7 @@
             // 
             // startBot
             // 
+            this.startBot.Enabled = false;
             this.startBot.Location = new System.Drawing.Point(14, 204);
             this.startBot.Name = "startBot";
             this.startBot.Size = new System.Drawing.Size(182, 23);
@@ -132,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 376);
+            this.ClientSize = new System.Drawing.Size(214, 376);
             this.Controls.Add(this.totalAccounts);
             this.Controls.Add(this.totalAccountsLabel);
             this.Controls.Add(this.accountsCreated);
