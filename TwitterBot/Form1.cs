@@ -12,21 +12,26 @@ using System.Net.Http;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.IO;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace TwitterBot {
-    public partial class Form1 : Form {
+    public partial class Form1 : MaterialForm {
         static int accountsCount = 0;
+        static int totalAccountsCount = 0;
         public Form1() {
             InitializeComponent();
         }
 
-        private void startBot_Click(Object sender, EventArgs e) {
-            accountCreatorTimer.Start();
-        }
-
         private void accountCreatorTimer_Tick(Object sender, EventArgs e) {
             string randomEmail = Randomizer.RandomEmail(8);
-            makeRequest(passwordText.Text, randomEmail, "Joseph", "Bruno");
+
+            // Create a background worker
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler((send, args) => makeRequest("a", randomEmail, "Joseph", "Bruno"));
+
+            // run in another thread
+            bw.RunWorkerAsync();
             Debug.WriteLine("Making request");
         }
 
@@ -56,7 +61,11 @@ namespace TwitterBot {
             await client.UploadStringTaskAsync(uri, postData);
             saveAccountToFile(email);
             accountsCount++;
-            accountsCreated.Text = accountsCount.ToString();
+            totalAccountsCount++;
+            this.Invoke(new MethodInvoker(delegate {
+                accountsCreated.Text = accountsCount.ToString();
+                totalAccounts.Text = totalAccountsCount.ToString();
+            }));
         }
   
         private void saveAccountToFile(string account) {
@@ -66,8 +75,14 @@ namespace TwitterBot {
             }
         }
         private void Form1_Load(Object sender, EventArgs e) {
+            InitializeComponent();
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             var lineCount = File.ReadLines(@"C:\twitterbot\accounts.txt").Count();
             totalAccounts.Text = lineCount.ToString();
+            totalAccountsCount = lineCount;
         }
 
         private void button1_Click_1(Object sender, EventArgs e) {
@@ -76,6 +91,14 @@ namespace TwitterBot {
 
         private void label3_Click(Object sender, EventArgs e) {
 
+        }
+
+        private void startCreator_Click(Object sender, EventArgs e) {
+            accountCreatorTimer.Start();
+        }
+
+        private void stopCreator_Click(Object sender, EventArgs e) {
+            accountCreatorTimer.Stop();
         }
     }
 }
