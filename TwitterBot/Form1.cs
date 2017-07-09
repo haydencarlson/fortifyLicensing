@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Management;
 using MaterialSkin.Controls;
 using MaterialSkin;
 
@@ -125,6 +126,21 @@ namespace TwitterBot {
             if (this.Text.Length > 0) {
                 startBot.Enabled = true;
             }
+        }
+
+        private void button1_Click_1(Object sender, EventArgs e) {
+            string HWID = string.Empty;//creating a empty string
+            ManagementClass Management = new ManagementClass("win32_processor");//declaring the system management calss
+            ManagementObjectCollection MObject = Management.GetInstances();//decalring the system management object collection 
+            foreach (ManagementObject mob in MObject)//having a foreach loop
+            {
+                if (string.IsNullOrEmpty(HWID)) {
+                    HWID = mob.GetPropertyValue("processorID").ToString();//converting the HWID to string
+                    break;
+                }
+            }
+            MessageBox.Show("Your HWID : " + HWID, " HWID", MessageBoxButtons.OK, MessageBoxIcon.Information);//displaying the HWID from Message Box
+
         }
     }
 }

@@ -30,7 +30,7 @@ namespace TwitterBot {
             var lines = File.ReadAllLines(path);
             var r = new Random();
             var randomLineNumber = r.Next(0, lines.Length - 1);
-            string word = lines[randomLineNumber];
+            string word = lines[randomLineNumber].ToLower();
             return word;
         }
     }

@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.accountCreatorTimer = new System.Windows.Forms.Timer(this.components);
             this.passwordText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,11 +36,12 @@
             this.accountsCreated = new System.Windows.Forms.Label();
             this.totalAccountsLabel = new System.Windows.Forms.Label();
             this.totalAccounts = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // accountCreatorTimer
             // 
-            this.accountCreatorTimer.Interval = 500;
+            this.accountCreatorTimer.Interval = 1500;
             this.accountCreatorTimer.Tick += new System.EventHandler(this.accountCreatorTimer_Tick);
             // 
             // passwordText
@@ -130,11 +132,22 @@
             this.totalAccounts.TabIndex = 19;
             this.totalAccounts.Text = "0";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(-3, 344);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(214, 376);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.totalAccounts);
             this.Controls.Add(this.totalAccountsLabel);
             this.Controls.Add(this.accountsCreated);
@@ -144,6 +157,7 @@
             this.Controls.Add(this.accountsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "TwitterBot";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -164,6 +178,7 @@
         private System.Windows.Forms.Label accountsCreated;
         private System.Windows.Forms.Label totalAccountsLabel;
         private System.Windows.Forms.Label totalAccounts;
+        private System.Windows.Forms.Button button1;
     }
 }
 
