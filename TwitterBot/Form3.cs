@@ -16,9 +16,21 @@ namespace TwitterBot {
         }
 
         private void button1_Click(Object sender, EventArgs e) {
-            string hwid = getHWID();
-            DBConnect db = new DBConnect();
-            db.InsertUser(textBox1.Text, textBox2.Text, hwid);
+            if (passwordField.Text.Length > 0) {
+                if (IsValidEmail(emailField.Text)) {
+                    string hwid = getHWID();
+                    bool response = DBConnect.InsertUser(emailField.Text, passwordField.Text, hwid);
+                    if (response) {
+                        MessageBox.Show("User has been registered. Please wait for verification");
+                    } else {
+                        MessageBox.Show("User already exists");
+                    }
+                } else {
+                    MessageBox.Show("Please enter a valid email address");
+                }
+            } else {
+                MessageBox.Show("Your password must be atleast 1 character long");
+            }
         }
 
 
@@ -34,6 +46,23 @@ namespace TwitterBot {
                 }
             }
             return HWID;
+        }
+
+        bool IsValidEmail(string email) {
+            try {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            } catch {
+                return false;
+            }
+        }
+
+        private void textBox2_TextChanged(Object sender, EventArgs e) {
+
+        }
+
+        private void textBox1_TextChanged(Object sender, EventArgs e) {
+            registerAccount.Enabled = true;
         }
     }
 }

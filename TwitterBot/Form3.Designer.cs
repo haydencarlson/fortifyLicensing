@@ -24,15 +24,16 @@
         /// </summary>
         private void InitializeComponent() {
             this.registerAccount = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.emailField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.passwordField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // registerAccount
             // 
+            this.registerAccount.Enabled = false;
             this.registerAccount.Location = new System.Drawing.Point(168, 106);
             this.registerAccount.Name = "registerAccount";
             this.registerAccount.Size = new System.Drawing.Size(127, 36);
@@ -41,12 +42,13 @@
             this.registerAccount.UseVisualStyleBackColor = true;
             this.registerAccount.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // emailField
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 20);
-            this.textBox1.TabIndex = 1;
+            this.emailField.Location = new System.Drawing.Point(92, 29);
+            this.emailField.Name = "emailField";
+            this.emailField.Size = new System.Drawing.Size(175, 20);
+            this.emailField.TabIndex = 1;
+            this.emailField.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -57,12 +59,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Email:";
             // 
-            // textBox2
+            // passwordField
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 3;
+            this.passwordField.Location = new System.Drawing.Point(92, 67);
+            this.passwordField.Name = "passwordField";
+            this.passwordField.Size = new System.Drawing.Size(175, 20);
+            this.passwordField.TabIndex = 3;
+            this.passwordField.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -89,9 +92,9 @@
             this.ClientSize = new System.Drawing.Size(307, 154);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.passwordField);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.emailField);
             this.Controls.Add(this.registerAccount);
             this.Name = "Form3";
             this.Text = "Fortified Licensing - Registration";
@@ -103,9 +106,9 @@
         #endregion
 
         private System.Windows.Forms.Button registerAccount;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox emailField;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox passwordField;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
     }
