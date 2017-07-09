@@ -28,22 +28,32 @@ class DBConnect {
         connection = new MySqlConnection(connectionString);
     }
 
-    public void InsertUser(string email, string password, string hwid) {
-        connection.Open();
-        string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
-        MySqlCommand command = connection.CreateCommand();
-        command.CommandText = "INSERT INTO users(email, password, hwid) VALUES (@email, @password, @hwid)";
-        command.Parameters.AddWithValue("@email", email);
-        command.Parameters.AddWithValue("@password", passwordHash);
-        command.Parameters.AddWithValue("@hwid", hwid);
-
+    public static bool checkIfUserExists(string email) {
+        DBConnect db = new DBConnect();
+        db.connection.Open();
+        MySqlCommand command = db.connection.CreateCommand();
+        command.CommandText = "SELECT * FROM users WHERE email = '" + email + "'";
         IDataReader reader = command.ExecuteReader();
-
-        if (reader.Read()) {
-            Debug.WriteLine(reader);
+        bool doesExist = reader.Read();
+        db.connection.Close();
+        return doesExist;
+    }
+    public static bool InsertUser(string email, string password, string hwid) {
+        DBConnect db = new DBConnect();
+        bool doesExist = checkIfUserExists(email);
+        if (!doesExist) {
+            db.connection.Open();
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            MySqlCommand command = db.connection.CreateCommand();
+            command.CommandText = "INSERT INTO users(email, password, hwid) VALUES (@email, @password, @hwid)";
+            command.Parameters.AddWithValue("@email", email);
+            command.Parameters.AddWithValue("@password", passwordHash);
+            command.Parameters.AddWithValue("@hwid", hwid);
+            IDataReader reader = command.ExecuteReader();
+            db.connection.Close();
+            return true;
+        }  else {
+            return false;
         }
-
-        connection.Close();
-
     }
 }
