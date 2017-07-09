@@ -129,6 +129,8 @@ namespace TwitterBot {
         }
 
         private void button1_Click_1(Object sender, EventArgs e) {
+            Form2 neForm = new Form2();
+            neForm.Show();
             string HWID = string.Empty;//creating a empty string
             ManagementClass Management = new ManagementClass("win32_processor");//declaring the system management calss
             ManagementObjectCollection MObject = Management.GetInstances();//decalring the system management object collection 
