@@ -12,3 +12,4 @@ C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.Form2.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\obj\Debug\TwitterBot.Form3.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\TwitterBot\TwitterBot\bin\Debug\FortifyLicensing.exe.config
