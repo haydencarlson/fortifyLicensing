@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7CB3FD06-AD43-40D1-9E49-E5C2E14C589B}</ProjectGuid>
+    <ProjectGuid>{66ACDD57-598E-4DF5-8CFA-571108DCC546}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TwitterBot</RootNamespace>
