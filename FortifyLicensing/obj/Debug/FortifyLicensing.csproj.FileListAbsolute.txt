@@ -7,7 +7,6 @@ C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLi
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\bin\Debug\MaterialSkin.dll
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\bin\Debug\MySql.Data.dll
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\FortifyLicensing.csprojResolveAssemblyReference.cache
-C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\TwitterBot.Form1.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\TwitterBot.Form2.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\TwitterBot.Form3.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\TwitterBot.Properties.Resources.resources
