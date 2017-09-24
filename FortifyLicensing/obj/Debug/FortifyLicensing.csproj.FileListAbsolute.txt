@@ -11,3 +11,7 @@ C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLi
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\TwitterBot.Form3.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\TwitterBot.Properties.Resources.resources
 C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\obj\Debug\FortifyLicensing.csproj.GenerateResource.Cache
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hayden\Documents\Visual Studio 2015\Projects\FortifyLicensing\FortifyLicensing\bin\Debug\System.Net.Http.Formatting.xml

@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Management;
+using System.Web.Script.Serialization;
+using HttpUtils;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,20 +18,33 @@ namespace TwitterBot {
         }
 
         private void button1_Click(Object sender, EventArgs e) {
-            if (passwordField.Text.Length > 0) {
-                if (IsValidEmail(emailField.Text)) {
-                    string hwid = getHWID();
-                    bool response = DBConnect.InsertUser(emailField.Text, passwordField.Text, hwid);
-                    if (response) {
-                        MessageBox.Show("User has been registered. Please wait for verification");
+            if (passwordConfirmation.Text == passwordField.Text) {
+                if (passwordField.Text.Length > 0) {
+                    if (IsValidEmail(emailField.Text)) {
+                        string hwid = getHWID();
+                        var endpoint = "https://requestb.in/17r2jxb1";
+                        string json = new JavaScriptSerializer().Serialize(new {
+                            username = emailField.Text,
+                            password = passwordField.Text
+                        });
+                        var client = new RestClient();
+                        client.EndPoint = endpoint;
+                        client.Method = HttpVerb.POST;
+                        client.PostData = json;
+                        var response = client.MakeRequest();
+                        if (response != null) {
+                            MessageBox.Show("User has been registered. Please wait for verification");
+                        } else {
+                            MessageBox.Show("User already exists");
+                        }
                     } else {
-                        MessageBox.Show("User already exists");
+                        MessageBox.Show("Please enter a valid email address");
                     }
                 } else {
-                    MessageBox.Show("Please enter a valid email address");
+                    MessageBox.Show("Your password must be atleast 1 character long");
                 }
             } else {
-                MessageBox.Show("Your password must be atleast 1 character long");
+                MessageBox.Show("Your passwords do not match");
             }
         }
 
@@ -63,6 +78,10 @@ namespace TwitterBot {
 
         private void textBox1_TextChanged(Object sender, EventArgs e) {
             registerAccount.Enabled = true;
+        }
+
+        private void Form3_Load(Object sender, EventArgs e) {
+
         }
     }
 }
